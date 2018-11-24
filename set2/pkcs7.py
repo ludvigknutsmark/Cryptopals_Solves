@@ -18,11 +18,12 @@ def pkcs7_validate(src, blocksize=16):
             src_len = 1
         else:
             src_len = len(src) - 16
-        
+       
+               
         unpadded = src[:(len(src)%16)*blocksize-padding]
-        # Not padded
+        # Not padded. Which raises an error
         if padding < 1 or padding > 15:
-            return src
+            raise ValueError('String is not padded or the string is corrupt')
         # Str of pad bytes
         pad_str = tmp_src[len(unpadded):]
 
