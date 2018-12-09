@@ -17,7 +17,7 @@ def main():
         h.append(mh[i])
     
 
-    # This extremely weird bug, which does that i cannot iterate the key_len guess. I know it's threeso i just sets it to three. MD4 implementation bug? 
+    # This extremely weird bug, which does that i cannot iterate the key_len guess. I know it's three so I just sets it to three. MD4 implementation bug? 
     k = 3
     newData = calculatePadding(message, k)+new_message 
     forged = md4digest(new_message, h, (k+len(newData))*8)
